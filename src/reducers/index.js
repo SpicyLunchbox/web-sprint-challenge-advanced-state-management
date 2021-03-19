@@ -1,4 +1,4 @@
-import { FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAILURE, ADD_SMURF } from '../actions';
+import { FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAILURE, ADD_SMURF, ADD_ERROR } from '../actions';
 
 export const initialState = {
     isLoading: false,
@@ -33,12 +33,17 @@ const reducer = (state = initialState, action)=>{
         case ADD_SMURF:
             return {
                 ...state,
+                error: "",
                 smurfs: [
                     ...state.smurfs, action.payload
                 ]
             }
 
-        // not sure what 7 is asking for here
+        case ADD_ERROR:
+            return {
+                ...state,
+                error: action.payload,
+            }
 
         default:
             return state;

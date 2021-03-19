@@ -4,6 +4,7 @@ export const FETCH_SMURFS_START = "FETCH_SMURFS_START";
 export const FETCH_SMURFS_SUCCESS = "FETCH_SMURFS_SUCCESS";
 export const FETCH_SMURFS_FAILURE = "FETCH_SMURFS_FAILURE";
 export const ADD_SMURF = "ADD_SMURF";
+export const ADD_ERROR = "ADD_ERROR";
 export const fetchData = () => {
     return (dispatch) => {
         dispatch({ type: FETCH_SMURFS_START });
@@ -24,6 +25,13 @@ export function addSmurf (smurf) {
     return {
         type: ADD_SMURF,
         payload: smurf,  
+    }
+}
+
+export function addError (message) {
+    return {
+        type: ADD_ERROR,
+        payload: message,
     }
 }
 
