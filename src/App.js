@@ -41,5 +41,5 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {fetchData})(App);
 
 //Task List:
-//1. Connect the fetchSmurfs actions to the App component.
-//2. Call the fetchSmurfs action when the component first loads.
+//1. Connect the fetchSmurfs actions to the App component. done
+//2. Call the fetchSmurfs action when the component first loads. done

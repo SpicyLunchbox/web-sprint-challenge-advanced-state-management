@@ -20,6 +20,13 @@ export const fetchData = () => {
     }
 }
 
+export function addSmurf (smurf) {
+    return {
+        type: ADD_SMURF,
+        payload: smurf,  
+    }
+}
+
 
 
 

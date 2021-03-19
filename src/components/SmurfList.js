@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
     
     if (props.isLoading) {
         return <h1>Loading...</h1>;
-    } else if (props.isLoading === false) {
+    } 
 
     return(
         <div>
@@ -19,7 +19,7 @@ import {connect} from 'react-redux';
             })}
         </div>
     )
-}}
+}
 
 const mapStateToProps = state => {
     return {

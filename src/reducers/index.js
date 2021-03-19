@@ -12,27 +12,30 @@ const reducer = (state = initialState, action)=>{
         case FETCH_SMURFS_START:
             return {
                 ...state,
-                isLoading: false,
+                isLoading: true,
             };
         
         case FETCH_SMURFS_SUCCESS:
             return {
                 ...state,
                 smurfs: action.payload,
-                isloading: true,
+                isLoading: false,
                 error: "",
             };
 
         case FETCH_SMURFS_FAILURE:
             return {
                 ...state,
-                isloading: false,
+                isLoading: false,
                 error: action.payload,
                 }
 
         case ADD_SMURF:
             return {
-
+                ...state,
+                smurfs: [
+                    ...state.smurfs, action.payload
+                ]
             }
 
         // not sure what 7 is asking for here
