@@ -12,14 +12,14 @@ const reducer = (state = initialState, action)=>{
         case FETCH_SMURFS_START:
             return {
                 ...state,
-                isLoading: true,
+                isLoading: false,
             };
         
         case FETCH_SMURFS_SUCCESS:
             return {
                 ...state,
                 smurfs: action.payload,
-                isloading: false,
+                isloading: true,
                 error: "",
             };
 
