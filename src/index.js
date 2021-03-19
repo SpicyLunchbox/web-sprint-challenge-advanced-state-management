@@ -10,11 +10,12 @@ import thunk from 'redux-thunk';
 const { worker } = require('./mocks/browser');
 worker.start();
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(reducer, applyMiddleware(thunk));//creates store for the state tree and allows for async calls to be used within actions
 
 const rootElement = document.getElementById("root");
 
 ReactDOM.render(
+    //provides state to the App
 <Provider store={store}>
     <App />
 </Provider>, 

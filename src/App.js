@@ -10,7 +10,7 @@ import "./App.css";
 
 const App = (props) => {
   const { fetchData } = props
-  useEffect(() => {
+  useEffect(() => { //upon page load, fetchData is fired and data is... well... fetched from the "API"
     fetchData()
   }, [])
 
@@ -28,7 +28,7 @@ const App = (props) => {
   }
 
 
-const mapStateToProps = state => {
+const mapStateToProps = state => { //allows for selective grabbing of state from store
   return {
    isLoading: state.isLoading,
    smurfs: state.smurfs,
@@ -38,7 +38,7 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps, {fetchData})(App);
+export default connect(mapStateToProps, {fetchData})(App); //attaches state from store to to props
 
 //Task List:
 //1. Connect the fetchSmurfs actions to the App component. done
