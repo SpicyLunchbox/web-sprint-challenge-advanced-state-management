@@ -1,8 +1,53 @@
+import { FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAILURE, ADD_SMURF, ADD_ERROR } from '../actions'; //brings actions from actions/index.js
 
-export const initialState = {
+const initialState = { 
+    isLoading: false,
+    smurfs: [],
+    error: ""
 }
 
-const reducer = ()=>{
+const reducer = (state = initialState, action)=>{ //connects reducer to initial state and allows for actions to be passed in
+    switch(action.type) { 
+
+        case FETCH_SMURFS_START: //changes isLoading to true, allowing for loading... to render on page
+            return {
+                ...state,
+                isLoading: true,
+            };
+        
+        case FETCH_SMURFS_SUCCESS: //turns isLoading off, updateds smurfs array with data from axios.get request to "API"
+            return {
+                ...state,
+                smurfs: action.payload,
+                isLoading: false,
+                error: "",
+            };
+
+        case FETCH_SMURFS_FAILURE: //turns isLoading off, if something goes wrong, error info is displayed on page
+            return {
+                ...state,
+                isLoading: false,
+                error: action.payload,
+                }
+
+        case ADD_SMURF: //updates smurf array locally, but does not send new data to API.  I was unsure which was wanted for MVP
+            return {
+                ...state,
+                error: "",
+                smurfs: [
+                    ...state.smurfs, action.payload
+                ]
+            }
+
+        case ADD_ERROR: //updates error message
+            return {
+                ...state,
+                error: action.payload,
+            }
+
+        default:
+            return state;
+    }
 }
 
 export default reducer;
